@@ -355,11 +355,14 @@ MonoBehaviour:
   gravity: -40
   groundDistance: 0.6
   jumpHeight: 5
+  fallMultiplier: 1.5
   groundCheck: {fileID: 2057881879}
   controller: {fileID: 318918941}
-  groundMask:
-    serializedVersion: 2
+  groundMasks:
+  - serializedVersion: 2
     m_Bits: 256
+  - serializedVersion: 2
+    m_Bits: 512
 --- !u!1001 &630821967
 PrefabInstance:
   m_ObjectHideFlags: 0

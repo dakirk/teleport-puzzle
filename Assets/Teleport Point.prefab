@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2699157110182924646}
   m_Layer: 9
   m_Name: Teleport Point
-  m_TagString: Ground
+  m_TagString: TeleportPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

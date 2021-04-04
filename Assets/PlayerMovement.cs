@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
     public float gravity = -9.81f;
     public float groundDistance = 0.4f;
     public float jumpHeight = 3f;
+    public float fallMultiplier = 1.5f;
     bool isGrounded;
 
     public Transform groundCheck;
@@ -45,7 +46,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         // apply gravity -- faster down than up
-        velocity.y += gravity * (velocity.y > 0 ? 1 : 2) * Time.deltaTime;
+        velocity.y += gravity * (velocity.y > 0 ? 1 : fallMultiplier) * Time.deltaTime;
 
         controller.Move(velocity * Time.deltaTime);
     }
