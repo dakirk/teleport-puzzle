@@ -12,13 +12,20 @@ public class PlayerMovement : MonoBehaviour
 
     public Transform groundCheck;
     public CharacterController controller;
-    public LayerMask groundMask;
+    public LayerMask[] groundMasks;
     Vector3 velocity;
 
     // Update is called once per frame
     void Update()
     {
-        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
+        LayerMask combinedMask = new LayerMask();
+
+        foreach (LayerMask mask in groundMasks)
+        {
+            combinedMask |= mask;
+        }
+
+        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, combinedMask);
 
         if (isGrounded && velocity.y < 0) 
         {

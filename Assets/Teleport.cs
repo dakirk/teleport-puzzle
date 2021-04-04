@@ -9,8 +9,8 @@ public class Teleport : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // seen by raycast if in layers 8 or 9
-        int layerMask = (1 << 8) | (1 << 9);
+        // seen by raycast if in layer 9
+        int layerMask = (1 << 9);
 
         if (Input.GetMouseButtonDown(1))
         {
@@ -21,7 +21,10 @@ public class Teleport : MonoBehaviour
 
             if (Physics.Raycast(playerRay, out hit, reachDistance, layerMask))
             {
-                Debug.Log($"Hit {hit.transform.name}");
+                Debug.Log($"Hit {hit.transform.name} at position {hit.transform.position}");
+                Debug.Log($"Parent '{transform.parent.name}' at position {transform.parent.position}");
+                transform.parent.position = hit.transform.position + new Vector3(0, 2, 0);
+                Debug.Log($"Parent '{transform.parent.name}' at position {transform.parent.position}");
             }
         }
     }
